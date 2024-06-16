@@ -6,8 +6,7 @@ public class Task1 {
         int age = 17;
         float weight = 55.5f;
 
-        System.out.println("--- Home Work 1 ---");
-        System.out.printf("Ім'я=%s, Вік=%d, Вага=%.2f", name, age, weight);
-        System.out.println();
+        System.out.println("--- Task 1 ---");
+        System.out.printf("Name=%s, Age=%d, Weight=%.2f", name, age, weight);
     }
 }

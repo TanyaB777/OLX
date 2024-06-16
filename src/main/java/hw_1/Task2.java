@@ -1,20 +1,18 @@
 package hw_1;
 
-public class Task2 {public static void main(String[] args) {
-    int a = 1;
-    int b = 2;
-    int c;
+public class Task2 {
+    public static void main(String[] args) {
+        int a = 1;
+        int b = 2;
+        int helper;
 
-    System.out.println("--- Home Work 2 ---");
-    System.out.printf("a=%d, b=%d", a, b);
-    System.out.println();
+        System.out.println("--- Task 2 ---");
+        System.out.printf("a=%d, b=%d\n", a, b);
 
-    c = a;
-    a = b;
-    b = c;
+        helper = a;
+        a = b;
+        b = helper;
 
-    System.out.printf("a=%d, b=%d", a, b);
-    System.out.println();
-
+        System.out.printf("a=%d, b=%d", a, b);
     }
 }
