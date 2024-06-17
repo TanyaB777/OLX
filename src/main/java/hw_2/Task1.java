@@ -22,10 +22,10 @@ public class Task1 {
         b = 5;
         c = a/b;
         System.out.printf("%d/%d=%d\n", a, b, c);
-        double  d = 9.5/5;
+        double d = 9.5/5;
         System.out.printf("9.5/5=%.2f\n", d);
         // %
-        a = 29;
+        a = 16;
         b = 3;
         c = a%b;
         System.out.printf("%d%%%d=%d\n", a, b, c);
