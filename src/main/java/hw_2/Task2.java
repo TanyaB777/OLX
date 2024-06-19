@@ -5,7 +5,7 @@ public class Task2 {
         int x = 3;
         int y = 4;
         //ver 1
-        System.out.printf("%d %s%s",x+y,x,y);
+        System.out.printf("%d %s%s", x + y, x, y);
         //ver 2
         //System.out.println(x+y+" "+x+""+y);
     }
