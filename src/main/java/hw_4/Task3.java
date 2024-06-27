@@ -10,8 +10,8 @@ public class Task3 {
                 "І сховається за край окружних гір\n";
         String strFind;
         int countSubstring = 0;
-        int findIndex = 0;
-        int fromIndex = 0;
+        int foundSubstringIndex = 0;
+        int fromIndexToSearch = 0;
 
         Scanner scanner = new Scanner(System.in);
 
@@ -23,8 +23,8 @@ public class Task3 {
         if (strFind.isEmpty())
             System.out.println("Substring is empty");
         else {
-            while ((findIndex = strInput.toLowerCase().indexOf(strFind.toLowerCase(), fromIndex)) >= 0) {
-                fromIndex = findIndex + 1;
+            while ((foundSubstringIndex = strInput.toLowerCase().indexOf(strFind.toLowerCase(), fromIndexToSearch)) >= 0) {
+                fromIndexToSearch = foundSubstringIndex + 1;
                 countSubstring++;
             }
             System.out.println("Count of the search substring: " + countSubstring);

@@ -18,8 +18,8 @@ public class Task4 {
                 "Торонто", "Монреаль", "Ванкувер", "Калгарі", "Оттава", "Едмонтон", "Вінніпег", "Гамільтон", "Квебек", "Саскатун"
         };
 
-        boolean fCity = false;
-        boolean fQuit = false;
+        boolean foundCity = false;
+        boolean isQuit = false;
 
         System.out.println("Давай пограємо у «Міста». Ти перший називай!");
 
@@ -27,26 +27,26 @@ public class Task4 {
 
         do {
             String userInput = scanner.nextLine();
-            char firstLetter = userInput.toLowerCase().charAt(userInput.length() - 1);
+            char firstLetterTiFindInArray = userInput.toLowerCase().charAt(userInput.length() - 1);
 
-            if (firstLetter == 'q') {
-                fQuit = true;
+            if (firstLetterTiFindInArray == 'q') {
+                isQuit = true;
                 break;
             }
 
             for (int i = 0; i < arrCity.length; i++) {
-                if (arrCity[i].toLowerCase().charAt(0) == firstLetter) {
+                if (arrCity[i].toLowerCase().charAt(0) == firstLetterTiFindInArray) {
                     System.out.println(arrCity[i]);
                     arrCity[i] = "_" + arrCity[i];
-                    fCity = true;
+                    foundCity = true;
                     break;
                 } else
-                    fCity = false;
+                    foundCity = false;
             }
 
-        } while (fCity);
+        } while (foundCity);
 
-        if (!fQuit)
+        if (!isQuit)
             System.out.println("Я програв, ти знаєш більше назв міст");
 
         scanner.close();

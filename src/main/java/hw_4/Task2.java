@@ -21,7 +21,7 @@ public class Task2 {
             for (int i = 0; i < strArray.length; i++) {
                 intArray[i] = Integer.parseInt(strArray[i]);
             }
-        } catch (Exception ex) {
+        } catch (NumberFormatException ex) {
             System.out.println("Enter only series of integers separated by spaces!");
         }
 
@@ -33,12 +33,10 @@ public class Task2 {
             if (userMin > intArray[i]) {
                 userMin = intArray[i];
             }
-            ;
 
             if (userMax < intArray[i]) {
                 userMax = intArray[i];
             }
-            ;
         }
 
         System.out.printf("Min value: %d Max value: %d", userMin, userMax);
