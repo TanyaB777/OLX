@@ -2,7 +2,7 @@ package hw_6;
 
 public class MyArray {
     private String[] array;
-    private int size = 0;
+    private int size;
 
     public MyArray() {
         this(5);
