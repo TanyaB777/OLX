@@ -1,22 +1,14 @@
 package hw_6;
 
 public class Task1 {
-    public static void main(String[] args) {
 
-        Task1 task = new Task1();
-        task.NonStaticMethod();
+    private int x = 3;
+    private int y = 4;
 
-        StaticMethod();
+    private static int x1 = 5;
+    private static int y1 = 8;
 
-    }
-
-    int x = 3;
-    int y = 4;
-
-    static int x1 = 5;
-    static int y1 = 8;
-
-    private void NonStaticMethod() {
+    public void nonStaticMethod() {
         System.out.println("Non Static");
         System.out.printf("x = %d y = %d \n", x, y);
 
@@ -26,7 +18,7 @@ public class Task1 {
         System.out.printf("x = %d y = %d", x, y);
     }
 
-    private static void StaticMethod() {
+    public static void staticMethod() {
         System.out.println("\nStatic");
         System.out.printf("x = %d y = %d \n", x1, y1);
 
