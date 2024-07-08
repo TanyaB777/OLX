@@ -12,7 +12,7 @@ public class Program {
         Lecture30.finishWork(browser);
         Lecture30.finishWork(file);
 
-        SessionCloser sessionCloser = (entities) -> {
+        SessionCloser sessionCloser = entities -> {
             for (CanBeClosed entity : entities) {
                 entity.close();
             }
