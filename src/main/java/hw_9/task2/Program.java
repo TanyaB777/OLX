@@ -1,6 +1,6 @@
 package hw_9.task2;
 
-public class Prog {
+public class Program {
 
     public static void main(String[] args) {
 
