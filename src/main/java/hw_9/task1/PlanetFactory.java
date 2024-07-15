@@ -1,7 +1,7 @@
 package hw_9.task1;
 
 public class PlanetFactory {
-    public static Planet getPlanet(String planetName) {
+    public static Planet getPlanet(String planetName) throws IllegalAccessException {
         switch (planetName) {
             case "Mercury":
                 return new Mercury();
@@ -20,11 +20,7 @@ public class PlanetFactory {
             case "Neptune":
                 return new Neptune();
             default:
-                try {
-                    throw new Exception("Planet with this name is not exist!");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
+                throw new IllegalAccessException(String.format("Planet with this name <%s> is not exist!", planetName));
         }
     }
 }
