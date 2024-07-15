@@ -5,8 +5,13 @@ public class Program {
 
         String[] planetNames = {"Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"};
 
-        for (String helperPlanet : planetNames) {
-            PlanetFactory.getPlanet(helperPlanet).displayInfo();
+        try {
+            for (String helperPlanet : planetNames) {
+                PlanetFactory.getPlanet(helperPlanet).displayInfo();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
     }
 }

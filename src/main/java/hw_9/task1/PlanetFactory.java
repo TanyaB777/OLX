@@ -20,7 +20,11 @@ public class PlanetFactory {
             case "Neptune":
                 return new Neptune();
             default:
-                return null;
+                try {
+                    throw new Exception("Planet with this name is not exist!");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
         }
     }
 }
