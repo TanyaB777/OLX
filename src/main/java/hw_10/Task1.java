@@ -41,5 +41,16 @@ public class Task1 {
 
         String result = String.join(" ", list);
         System.out.println("Final result: " + result);
+
+        /*result = "";
+
+        for (String str: list){
+            result = result + " " + str;
+        }
+
+        result = result.trim();
+
+        System.out.println("Final result: " + result);*/
     }
+
 }
