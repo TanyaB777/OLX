@@ -28,7 +28,7 @@ public class Task3 {
 
         List<String> peopleUnder70 = peopleList.stream()
                 .filter(person -> person.getAge() < 70)
-                .map(person -> person.getName())
+                .map(Person::getName)
                 .toList();
 
         System.out.println(peopleUnder70);
