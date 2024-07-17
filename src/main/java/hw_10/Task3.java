@@ -11,28 +11,29 @@ public class Task3 {
         Person person4 = new Person("Bob", "Brown", 50, 20800);
         Person person5 = new Person("Charlie", "Davis", 40, 40000);
 
-        List<Person> people = new ArrayList<>();
+        List<Person> peopleList = new ArrayList<>();
 
-        people.add(person1);
-        people.add(person2);
-        people.add(person3);
-        people.add(person4);
-        people.add(person5);
+        peopleList.add(person1);
+        peopleList.add(person2);
+        peopleList.add(person3);
+        peopleList.add(person4);
+        peopleList.add(person5);
 
         System.out.println("List of persons:");
+        System.out.println(peopleList);
 
-        for (Person person : people) {
-            System.out.println(person);
-        }
+        //for (Person person : peopleList) {
+        //    System.out.println(person);
+        //}
 
-        List<String> namesUnder70 = people.stream()
+        List<String> peopleUnder70 = peopleList.stream()
                 .filter(person -> person.getAge() < 70)
                 .map(person -> person.getName())
                 .toList();
 
-        System.out.println(namesUnder70);
+        System.out.println(peopleUnder70);
 
-        //for (String name : namesUnder70) {
+        //for (String name : peopleUnder70) {
         //    System.out.println(name);
         //}
     }
