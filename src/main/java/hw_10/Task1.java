@@ -8,6 +8,7 @@ public class Task1 {
     public static void main(String[] args) {
 
         List<String> list = new ArrayList<>();
+
         list.add("One");
         list.add("Two");
         list.add("Three");
@@ -16,41 +17,27 @@ public class Task1 {
         list.add("Six");
         list.add("Seven");
 
-        System.out.println("Original list: " + list);
+        System.out.println("Original List: " + list);
 
         list.remove(0);
         list.remove(list.size() - 1);
-        System.out.println("After removing list: " + list);
+        System.out.println("List after removing 1: " + list);
 
         list.set(0, "Hello");
         list.set(list.size() - 1, "World");
-        System.out.println("After setting list: " + list);
+        System.out.println("List after setting: " + list);
 
-        Iterator<String> iterator = list.iterator();
-        while (iterator.hasNext()) {
-            String str = iterator.next();
-            if (!str.equals("Hello") && !str.equals("World")) {
-                iterator.remove();
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (!list.get(i).equals("Hello") && !list.get(i).equals("World")) {
+                list.remove(i);
             }
         }
 
-        System.out.println("After removing list: " + list);
-
-        //list.removeIf(s -> !(s.equals("Hello") || s.equals("World")));
-        //System.out.println("After removing list: " + list);
+        System.out.println("List after removing 2: " + list);
 
         String result = String.join(" ", list);
-        System.out.println("Final result: " + result);
+        System.out.println("String: " + result);
 
-        /*result = "";
-
-        for (String str: list){
-            result = result + " " + str;
-        }
-
-        result = result.trim();
-
-        System.out.println("Final result: " + result);*/
     }
 
 }
