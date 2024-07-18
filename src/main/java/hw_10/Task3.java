@@ -22,9 +22,6 @@ public class Task3 {
         System.out.println("List of persons:");
         System.out.println(peopleList);
 
-        //for (Person person : peopleList) {
-        //    System.out.println(person);
-        //}
 
         List<String> peopleUnder70 = peopleList.stream()
                 .filter(person -> person.getAge() < 70)
@@ -33,8 +30,5 @@ public class Task3 {
 
         System.out.println(peopleUnder70);
 
-        //for (String name : peopleUnder70) {
-        //    System.out.println(name);
-        //}
     }
 }
