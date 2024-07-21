@@ -68,8 +68,6 @@ public class Task2 {
         System.out.print("Введіть ім'я: ");
         String name = scanner.nextLine().trim();
 
-        System.out.print("Введіть вік: ");
-
         String inputAge;
         int age = 0;
 

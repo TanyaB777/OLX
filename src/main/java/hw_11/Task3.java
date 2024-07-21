@@ -16,12 +16,13 @@ public class Task3 {
 
         System.out.println(queue);
 
-        String str = "";
+        String str;
 
-        if (!queue.isEmpty())
+        if (!queue.isEmpty()) {
             str = queue.element();
-        else
+        } else {
             str = "Empty queue";
+        }
 
         System.out.println(str);
         System.out.println(queue);

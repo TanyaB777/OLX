@@ -19,6 +19,7 @@ public class Task1 {
         integerMap.put("Nikolay", 33);
 
         System.out.println(integerMap);
+        System.out.println("Size of the map: " + integerMap.size());
 
         for (Map.Entry<String, Integer> entry : integerMap.entrySet()) {
             System.out.printf("Ім’я людини: %s, Років: %s\n", entry.getKey(), entry.getValue());
