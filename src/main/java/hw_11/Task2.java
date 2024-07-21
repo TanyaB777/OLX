@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class Task2 {
 
-    private static Scanner scanner = new Scanner(System.in);
-    private static Map<String, Person> people = new HashMap<>();
+    private final static Scanner scanner = new Scanner(System.in);
+    private final static Map<String, Person> people = new HashMap<>();
 
     public static void main(String[] args) {
 
@@ -90,9 +90,6 @@ public class Task2 {
         people.put(surname.toUpperCase(), person);
 
         System.out.println("Ви щойно додали " + person + " людину");
-
-        ;
-        ;
     }
 
 }
