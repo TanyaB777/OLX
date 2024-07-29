@@ -35,19 +35,34 @@ public class Task2 {
         loadService("hw_14.LazyService");
         loadService("java.lang.String");
 
-        for (Map.Entry<String, Object> entry: servicesMap.entrySet())
-        {
-            System.out.println(entry.getKey());
-            System.out.println(entry.getValue().toString());
+        for (Map.Entry<String, Object> entry : servicesMap.entrySet()) {
+            System.out.println("___" + entry.getKey());
+
+            Object service = entry.getValue();
+            Class<?> serviceClass = service.getClass();
+
+            System.out.println(serviceClass.getName());
+
+            for (Method method : serviceClass.getDeclaredMethods()) {
+
+                if (method.isAnnotationPresent(Init.class)) {
+
+                    try {
+                        method.invoke(service);
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 
     static void inspectService(Class<?> service) {
         if (service.isAnnotationPresent(Service.class)) {
             Service ann = service.getAnnotation(Service.class);
-            System.out.println("Class: " + service.getName() + " " + ann.name());
+            System.out.println("---Class: " + service.getName() + " " + ann.name());
         } else {
-            System.out.println(service.getName() + " Annotation not found");
+            System.out.println("---Class: " + service.getName() + " Annotation not found");
         }
 
         for (Method method : service.getDeclaredMethods()) {
@@ -55,24 +70,27 @@ public class Task2 {
                 Init ann = method.getAnnotation(Init.class);
                 System.out.println("Method: " + method.getName() + " " + ann.toString());
             } else {
-                System.out.println(method.getName() + " Annotation not found");
+                System.out.println("Method: " +method.getName() + " Annotation not found");
             }
         }
     }
 
-    static void loadService(String className) {
-        try{
+    public static void loadService(String className) {
+        try {
             Class<?> clazz = Class.forName(className);
 
-            if (clazz.isAnnotationPresent(Service.class)){
-                Object serviceObj = clazz.getName();
-                
-                servicesMap.put(serviceObj.toString(), serviceObj);
-            }
+            if (clazz.isAnnotationPresent(Service.class)) {
+                Object serviceObj = clazz.getDeclaredConstructor().newInstance();
 
-        } catch (ClassNotFoundException  e) {
+                servicesMap.put(clazz.getName(), serviceObj);
+            }
+        } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                 InvocationTargetException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
+
 
 }
