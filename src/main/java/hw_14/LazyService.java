@@ -5,6 +5,6 @@ public class LazyService {
 
     @Init
     public void lazyInit() throws Exception{
-        System.out.println("lazyService");
+        System.out.println("Hello from lazyService!");
     }
 }

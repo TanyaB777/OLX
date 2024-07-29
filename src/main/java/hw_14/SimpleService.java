@@ -5,11 +5,11 @@ public class SimpleService {
 
     @Init
     public void initService() {
-        System.out.println("initService");
+        System.out.println("Hello from initService!");
     };
 
     public void leftService() {
-        System.out.println("leftService");
+        System.out.println("Hello from leftService");
     };
 
 }
