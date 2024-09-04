@@ -1,9 +1,9 @@
 package OLX;
 
+import OLX.DP_OLX.DataProviderOLX;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.testng.Assert.assertTrue;
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class SocialMedia {
 
-    @Test
+    @Test(DataProvider = DataProviderOLX)
     public void testLinkOpensInNewTab() {
 
         String siteForNavigateURL = "https://www.facebook.com/olx.ua";
