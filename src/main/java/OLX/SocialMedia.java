@@ -12,16 +12,16 @@ import java.util.Set;
 
 public class SocialMedia {
 
-    @Test(DataProvider = DataProviderOLX)
-    public void testLinkOpensInNewTab() {
+    @Test(dataProvider = "getSocialMedia", dataProviderClass = DataProviderOLX.class)
+    public void testLinkOpensInNewTab(String s1, String s2) {
 
-        String siteForNavigateURL = "https://www.facebook.com/olx.ua";
+        String siteForNavigateURL = s1;
 
         open("https://www.olx.ua/");
 
         String originalWindow = getWebDriver().getWindowHandle();
 
-        $(By.cssSelector("[data-testid='facebook']")).scrollTo().click();
+        $(By.cssSelector(s2)).scrollTo().click();
 
         Set<String> allWindows = getWebDriver().getWindowHandles();
 
