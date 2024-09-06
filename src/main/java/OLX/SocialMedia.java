@@ -47,6 +47,4 @@ public class SocialMedia {
         assertTrue(siteFind);
         getWebDriver().close();
     }
-
-
 }
