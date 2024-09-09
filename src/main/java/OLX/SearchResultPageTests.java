@@ -1,5 +1,6 @@
 package OLX;
 
+import OLX.DP_OLX.DataProviderOLX;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public class SearchResultPageTests extends BaseTest {
 
-    @Test  //(dataProvider = "getSearchWords", dataProviderClass = SearchWordsData.class)
+    @Test  (dataProvider = "getSearchWords", dataProviderClass = DataProviderOLX.class)
     public void verifyPositiveSearchInput(String wordToSearch, String wordToVerify) {
 
 

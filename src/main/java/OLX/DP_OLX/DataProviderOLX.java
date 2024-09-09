@@ -12,4 +12,12 @@ public class DataProviderOLX {
                 {"https://x.com/olx_ua", "[data-testid='twitter']"}
         };
     }
+
+    @DataProvider
+    public Object [][] getSearchWords(){
+
+        return new Object[][] {
+                {"порцеляна", "порцелян"}
+        };
+    }
 }
