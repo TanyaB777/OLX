@@ -1,7 +1,5 @@
 package tb_olx_project;
 
-import OLX.HomePage;
-import OLX.ProductsPage;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;

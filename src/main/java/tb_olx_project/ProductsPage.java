@@ -1,13 +1,12 @@
-package OLX;
+package tb_olx_project;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class ProductsPage extends BasePage{
+public class ProductsPage extends BasePage {
 
     public ProductsPage(WebDriver driver) {
         super(driver);
