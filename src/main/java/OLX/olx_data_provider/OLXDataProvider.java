@@ -1,8 +1,8 @@
-package OLX.DP_OLX;
+package OLX.olx_data_provider;
 
 import org.testng.annotations.DataProvider;
 
-public class DataProviderOLX {
+public class OLXDataProvider {
 
     @DataProvider
     public Object[][] getSocialMedia() {

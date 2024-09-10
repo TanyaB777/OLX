@@ -1,6 +1,6 @@
 package OLX;
 
-import OLX.DP_OLX.DataProviderOLX;
+import OLX.olx_data_provider.OLXDataProvider;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class SocialMedia {
 
-    @Test(dataProvider = "getSocialMedia", dataProviderClass = DataProviderOLX.class)
+    @Test(dataProvider = "getSocialMedia", dataProviderClass = OLXDataProvider.class)
     public void testLinkOpensInNewTab(String s1, String s2) {
 
         String siteForNavigateURL = s1;
