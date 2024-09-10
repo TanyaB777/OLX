@@ -1,8 +1,8 @@
-package OLX;
+package tb_olx_project;
 
-import OLX.olx_data_provider.OLXDataProvider;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
+import tb_olx_project.olx_data_provider.OLXDataProvider;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -10,7 +10,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.Set;
 
-public class SocialMedia {
+public class SocialMediaTests {
 
     @Test(dataProvider = "getSocialMedia", dataProviderClass = OLXDataProvider.class)
     public void testLinkOpensInNewTab(String s1, String s2) {

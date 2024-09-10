@@ -1,4 +1,4 @@
-package OLX.olx_data_provider;
+package tb_olx_project.olx_data_provider;
 
 import org.testng.annotations.DataProvider;
 

@@ -1,6 +1,6 @@
 package tb_olx_project;
 
-import tb_olx_project.listeners.CustomListener;
+import tb_olx_project.listeners.CustomListeners;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -9,7 +9,7 @@ import org.testng.annotations.Listeners;
 
 import java.time.Duration;
 
-@Listeners(CustomListener.class)
+@Listeners(CustomListeners.class)
 public class BaseTest {
 
     private WebDriver driver;

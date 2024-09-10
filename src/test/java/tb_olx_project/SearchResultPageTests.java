@@ -1,11 +1,11 @@
-package OLX;
+package tb_olx_project;
 
-import OLX.olx_data_provider.OLXDataProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import tb_olx_project.olx_data_provider.OLXDataProvider;
 
 import java.util.List;
 
