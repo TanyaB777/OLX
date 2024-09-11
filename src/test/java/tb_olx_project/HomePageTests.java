@@ -40,4 +40,17 @@ public class HomePageTests extends BaseTest {
 
         assertTrue(homePage.getUkrLinkColor().contains(whiteColor));
     }
+
+    @Test(priority = 3)
+    public void verifySearchFilterClear() {
+
+        String textForSearchType = "Test text";
+
+        HomePage homePage = new HomePage(getDriver());
+
+        homePage.typeSearchText(textForSearchType);
+        homePage.clickClearButton();
+
+        assertTrue(homePage.getSearchText().isEmpty());
+    }
 }

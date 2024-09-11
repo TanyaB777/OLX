@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
     private static final By RUS_LANGUAGE_LINK = By.linkText("Рус");
     private static final By UKR_LANGUAGE_LINK = By.linkText("Укр");
     private static final By SEARCH_INPUT = By.id("search");
-
+    private static final By CLEAR_BUTTON = By.cssSelector("[data-testid = 'clear-btn']");
 
     public void clickHomeCategoryLink() {
         waitForElement(HOME_CATEGORY_LINK);
@@ -59,4 +59,23 @@ public class HomePage extends BasePage {
         WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
         searchInput.sendKeys(textToSearch, Keys.ENTER);
     }
+
+    public void typeSearchText(String textToSearch){
+        waitForElement(SEARCH_INPUT);
+        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
+        searchInput.sendKeys(textToSearch);
+    }
+
+    public String getSearchText(){
+        waitForElement(SEARCH_INPUT);
+        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
+        return searchInput.getText();
+    }
+
+    public void clickClearButton(){
+        waitForElement(CLEAR_BUTTON);
+        getDriver().findElement(CLEAR_BUTTON).click();
+    }
 }
+
+
