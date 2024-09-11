@@ -20,7 +20,7 @@ public class HomePageTests extends BaseTest {
 
         ProductsPage productsPage = new ProductsPage(getDriver());
 
-        Assert.assertTrue(productsPage.getProductSearchTitle());
+        Assert.assertTrue(productsPage.checkProductSearchTitle());
 
         List<WebElement> searchResult = productsPage.getProductsItems();
 

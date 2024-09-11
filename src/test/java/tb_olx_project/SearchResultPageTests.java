@@ -12,19 +12,18 @@ import java.util.List;
 public class SearchResultPageTests extends BaseTest {
 
     @Test  (dataProvider = "getSearchWords", dataProviderClass = OLXDataProvider.class)
-    public void verifyPositiveSearchInput(String wordToSearch, String wordToVerify) {
+    public void verifyPositiveSearchInput(String textToSearch, String textToVerify) {
 
+        HomePage homePage = new HomePage(getDriver());
+        homePage.enterSearchText(textToSearch);
 
-        WebElement searchInput = getDriver().findElement(By.id("search"));
-        searchInput.sendKeys(wordToSearch, Keys.ENTER);
+        ProductsPage productsPage = new ProductsPage(getDriver());
 
-        WebElement searchResultText = getDriver().findElement(By.cssSelector("[data-testid='total-count']"));
+        Assert.assertTrue(productsPage.checkProductSearchTitle());
 
-        List<WebElement> searchResult = getDriver().findElements(By.cssSelector("[class='css-1wxaaza']"));
+        List<WebElement> searchResult = productsPage.getProductsItems();
 
-        Assert.assertTrue(searchResult.get(3).getText().toLowerCase().contains(wordToVerify));
-
-        Assert.assertTrue(searchResultText.isDisplayed());
+        Assert.assertTrue(searchResult.get(3).getText().toLowerCase().contains(textToVerify));
     }
 
     @Test
@@ -32,12 +31,12 @@ public class SearchResultPageTests extends BaseTest {
 
         final String SEARCH_PRODUCT_TEXT = "nnnnnnn";
 
-        WebElement searchInput = getDriver().findElement(By.id("search"));
-        searchInput.sendKeys(SEARCH_PRODUCT_TEXT, Keys.ENTER);
+        HomePage homePage = new HomePage(getDriver());
+        homePage.enterSearchText(SEARCH_PRODUCT_TEXT);
 
-        WebElement searchResultText = getDriver().findElement(By.cssSelector("[data-testid='total-count']"));
+        ProductsPage productsPage = new ProductsPage(getDriver());
 
-        Assert.assertTrue(searchResultText.getText().contains(" 0 "));
+        Assert.assertTrue(productsPage.getProductSearchTitle().contains(" 0 "));
     }
 
     @Test
@@ -45,12 +44,12 @@ public class SearchResultPageTests extends BaseTest {
 
         final String SEARCH_PRODUCT_TEXT = " ";
 
-        WebElement searchInput = getDriver().findElement(By.id("search"));
-        searchInput.sendKeys(SEARCH_PRODUCT_TEXT, Keys.ENTER);
+        HomePage homePage = new HomePage(getDriver());
+        homePage.enterSearchText(SEARCH_PRODUCT_TEXT);
 
-        WebElement searchResultText = getDriver().findElement(By.cssSelector("[data-testid='total-count']"));
+        ProductsPage productsPage = new ProductsPage(getDriver());
 
-        Assert.assertTrue(searchResultText.getText().contains(" 0 "));
+        Assert.assertTrue(productsPage.getProductSearchTitle().contains(" 0 "));
     }
 
 }

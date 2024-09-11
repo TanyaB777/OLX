@@ -1,7 +1,6 @@
 package tb_olx_project;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 public class HomePage extends BasePage {
 
@@ -13,6 +12,7 @@ public class HomePage extends BasePage {
     private static final By KITCHEN_CATEGORY_LINK = By.cssSelector("[href*='posuda-kuhonnaya-utvar']");
     private static final By RUS_LANGUAGE_LINK = By.linkText("Рус");
     private static final By UKR_LANGUAGE_LINK = By.linkText("Укр");
+    private static final By SEARCH_INPUT = By.id("search");
 
 
     public void clickHomeCategoryLink() {
@@ -45,5 +45,18 @@ public class HomePage extends BasePage {
     public String getUkrLinkColor(){
         waitForElement(UKR_LANGUAGE_LINK);
         return getDriver().findElement(UKR_LANGUAGE_LINK).getCssValue("color");
+    }
+
+    public void clickSocialButton(String linkSelector){
+        waitForElement(By.cssSelector(linkSelector));
+        WebElement linkElement = getDriver().findElement(By.cssSelector(linkSelector));
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", linkElement);
+        linkElement.click();
+    }
+
+    public void enterSearchText(String textToSearch){
+        waitForElement(SEARCH_INPUT);
+        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
+        searchInput.sendKeys(textToSearch, Keys.ENTER);
     }
 }

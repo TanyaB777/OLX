@@ -1,50 +1,42 @@
 package tb_olx_project;
 
-import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import tb_olx_project.olx_data_provider.OLXDataProvider;
 
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
-import static org.testng.Assert.assertTrue;
-
 import java.util.Set;
 
-public class SocialMediaTests {
+public class SocialMediaTests extends BaseTest{
 
     @Test(dataProvider = "getSocialMedia", dataProviderClass = OLXDataProvider.class)
-    public void testLinkOpensInNewTab(String s1, String s2) {
+    public void testLinkOpensInNewTab (String expectedUrlPart, String linkSelector) {
 
-        String siteForNavigateURL = s1;
+        String originalWindow = getDriver().getWindowHandle();
 
-        open("https://www.olx.ua/");
+        HomePage homePage = new HomePage(getDriver());
+        homePage.clickSocialButton(linkSelector);
 
-        String originalWindow = getWebDriver().getWindowHandle();
-
-        $(By.cssSelector(s2)).scrollTo().click();
-
-        Set<String> allWindows = getWebDriver().getWindowHandles();
-
-        boolean siteFind = false;
+        Set<String> allWindows = getDriver().getWindowHandles();
+        boolean siteFound = false;
 
         try {
             for (String window : allWindows) {
                 if (!window.equals(originalWindow)) {
-                    getWebDriver().switchTo().window(window);
+                    getDriver().switchTo().window(window);
+                    String newTabUrl = getDriver().getCurrentUrl();
 
-                    String newTabUrl = getWebDriver().getCurrentUrl();
-
-                    if (newTabUrl.contains(siteForNavigateURL)) {
-                        siteFind = true;
+                    if (newTabUrl.contains(expectedUrlPart)) {
+                        siteFound = true;
                         break;
                     }
                 }
             }
         } finally {
-            getWebDriver().switchTo().window(originalWindow);
+            getDriver().switchTo().window(originalWindow);
         }
 
-        assertTrue(siteFind);
-        getWebDriver().close();
+        Assert.assertTrue(siteFound);
     }
 }
+
+

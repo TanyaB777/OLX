@@ -15,9 +15,14 @@ public class ProductsPage extends BasePage {
     private static final By PRODUCT_SEARCH_TITLE = By.cssSelector("[data-testid='total-count']");
     private static final By PRODUCT_ITEMS = By.cssSelector("[class='css-1wxaaza']");
 
-    public boolean getProductSearchTitle() {
+    public boolean checkProductSearchTitle() {
         waitForElement(PRODUCT_SEARCH_TITLE);
         return getDriver().findElement(PRODUCT_SEARCH_TITLE).isDisplayed();
+    }
+
+    public String getProductSearchTitle() {
+        waitForElement(PRODUCT_SEARCH_TITLE);
+        return getDriver().findElement(PRODUCT_SEARCH_TITLE).getText();
     }
 
     public List<WebElement>  getProductsItems() {
