@@ -1,33 +1,25 @@
 package tb_olx_project;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.codeborne.selenide.ElementsCollection;
 
-import java.util.List;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-public class ProductsPage extends BasePage {
+public class ProductsPage {
 
-    public ProductsPage(WebDriver driver) {
-        super(driver);
-    }
-
-    private static final By PRODUCT_SEARCH_TITLE = By.cssSelector("[data-testid='total-count']");
-    private static final By PRODUCT_ITEMS = By.cssSelector("[class='css-1wxaaza']");
+    private static final String PRODUCT_SEARCH_TITLE = "[data-testid='total-count']";
+    private static final String PRODUCT_ITEMS = "[class='css-1wxaaza']";
 
     public boolean checkProductSearchTitle() {
-        waitForElement(PRODUCT_SEARCH_TITLE);
-        return getDriver().findElement(PRODUCT_SEARCH_TITLE).isDisplayed();
+        return $(PRODUCT_SEARCH_TITLE).shouldBe(visible).isDisplayed();
     }
 
     public String getProductSearchTitle() {
-        waitForElement(PRODUCT_SEARCH_TITLE);
-        return getDriver().findElement(PRODUCT_SEARCH_TITLE).getText();
+        return $(PRODUCT_SEARCH_TITLE).shouldBe(visible).getText();
     }
 
-    public List<WebElement>  getProductsItems() {
-        waitForElement(PRODUCT_ITEMS);
-        return getDriver().findElements(PRODUCT_ITEMS);
+    public ElementsCollection getProductsItems() {
+        return $$(PRODUCT_ITEMS);
     }
 }
-

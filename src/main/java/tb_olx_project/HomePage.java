@@ -2,79 +2,60 @@ package tb_olx_project;
 
 import org.openqa.selenium.*;
 
-public class HomePage extends BasePage {
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
+public class HomePage {
 
-    private static final By HOME_CATEGORY_LINK = By.cssSelector("[class='css-cbwxzx']");
-    private static final By KITCHEN_CATEGORY_LINK = By.cssSelector("[href*='posuda-kuhonnaya-utvar']");
-    private static final By RUS_LANGUAGE_LINK = By.linkText("Рус");
-    private static final By UKR_LANGUAGE_LINK = By.linkText("Укр");
-    private static final By SEARCH_INPUT = By.id("search");
-    private static final By CLEAR_BUTTON = By.cssSelector("[data-testid = 'clear-btn']");
+    private static final String HOME_CATEGORY_LINK = "[class='css-cbwxzx']";
+    private static final String KITCHEN_CATEGORY_LINK = "[href*='posuda-kuhonnaya-utvar']";
+    private static final String RUS_LANGUAGE_LINK = "Рус";
+    private static final String UKR_LANGUAGE_LINK = "Укр";
+    private static final String SEARCH_INPUT = "search";
+    private static final String CLEAR_BUTTON = "[data-testid = 'clear-btn']";
 
     public void clickHomeCategoryLink() {
-        waitForElement(HOME_CATEGORY_LINK);
-        getDriver().findElement(HOME_CATEGORY_LINK).click();
+        $(HOME_CATEGORY_LINK).shouldBe(visible).click();
     }
 
     public void clickKitchenCategoryLink() {
-        waitForElement(KITCHEN_CATEGORY_LINK);
-        getDriver().findElement(KITCHEN_CATEGORY_LINK).click();
+        $(KITCHEN_CATEGORY_LINK).shouldBe(visible).click();
     }
 
-    public void clickRusLanguageLink()
-    {
-        waitForElement(RUS_LANGUAGE_LINK);
-        getDriver().findElement(RUS_LANGUAGE_LINK).click();
+    public void clickRusLanguageLink() {
+        $(RUS_LANGUAGE_LINK).shouldBe(visible).click();
     }
 
-    public void clickUkrLanguageLink()
-    {
-        waitForElement(UKR_LANGUAGE_LINK);
-        getDriver().findElement(UKR_LANGUAGE_LINK).click();
+    public void clickUkrLanguageLink() {
+        $(UKR_LANGUAGE_LINK).shouldBe(visible).click();
     }
 
-    public String getRusLinkColor(){
-        waitForElement(RUS_LANGUAGE_LINK);
-        return getDriver().findElement(RUS_LANGUAGE_LINK).getCssValue("color");
+    public String getRusLinkColor() {
+        return $(RUS_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
     }
 
-    public String getUkrLinkColor(){
-        waitForElement(UKR_LANGUAGE_LINK);
-        return getDriver().findElement(UKR_LANGUAGE_LINK).getCssValue("color");
+    public String getUkrLinkColor() {
+        return $(UKR_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
     }
 
-    public void clickSocialButton(String linkSelector){
-        waitForElement(By.cssSelector(linkSelector));
-        WebElement linkElement = getDriver().findElement(By.cssSelector(linkSelector));
-        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView(true);", linkElement);
-        linkElement.click();
+    public void clickSocialButton(String linkSelector) {
+        $(linkSelector).scrollTo().click();
     }
 
-    public void enterSearchText(String textToSearch){
-        waitForElement(SEARCH_INPUT);
-        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
-        searchInput.sendKeys(textToSearch, Keys.ENTER);
+    public void enterSearchText(String textToSearch) {
+        $(SEARCH_INPUT).shouldBe(visible).setValue(textToSearch).pressEnter();
     }
 
-    public void typeSearchText(String textToSearch){
-        waitForElement(SEARCH_INPUT);
-        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
-        searchInput.sendKeys(textToSearch);
+    public void typeSearchText(String textToSearch) {
+        $(SEARCH_INPUT).shouldBe(visible).setValue(textToSearch);
     }
 
-    public String getSearchText(){
-        waitForElement(SEARCH_INPUT);
-        WebElement searchInput = getDriver().findElement(SEARCH_INPUT);
-        return searchInput.getText();
+    public String getSearchText() {
+        return $(SEARCH_INPUT).shouldBe(visible).getText();
     }
 
-    public void clickClearButton(){
-        waitForElement(CLEAR_BUTTON);
-        getDriver().findElement(CLEAR_BUTTON).click();
+    public void clickClearButton() {
+        $(CLEAR_BUTTON).click();
     }
 }
 
