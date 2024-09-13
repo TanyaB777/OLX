@@ -7,9 +7,9 @@ public class OLXDataProvider {
     @DataProvider
     public Object[][] getSocialMedia() {
         return new Object[][]{
-                {"https://www.facebook.com/olx.ua", "[data-testid='facebook']"},
-                {"https://www.youtube.com/user/olxua", "[data-testid='youtube']"},
-                {"https://x.com/olx_ua", "[data-testid='twitter']"}
+                {"www.facebook.com/olx.ua", "[data-testid='facebook']"},
+                {"www.youtube.com/user/olxua", "[data-testid='youtube']"},
+                {"x.com/olx_ua", "[data-testid='twitter']"}
         };
     }
 

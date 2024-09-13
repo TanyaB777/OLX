@@ -1,20 +1,20 @@
 package tb_olx_project;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.*;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
 
     private static final String HOME_CATEGORY_LINK = "[class='css-cbwxzx']";
     private static final String KITCHEN_CATEGORY_LINK = "[href*='posuda-kuhonnaya-utvar']";
-    private static final String RUS_LANGUAGE_LINK = "Рус";
-    private static final String UKR_LANGUAGE_LINK = "Укр";
-    private static final String SEARCH_INPUT = "search";
+    private static final By RUS_LANGUAGE_LINK = By.linkText("Рус");
+    private static final By UKR_LANGUAGE_LINK = By.linkText("Укр");
+    private static final String SEARCH_INPUT = "#search";
     private static final String CLEAR_BUTTON = "[data-testid = 'clear-btn']";
+    private static final String MESSAGE_LINK = "[class='css-1o5oslh']";
 
     public void clickHomeCategoryLink() {
         $(HOME_CATEGORY_LINK).shouldBe(visible).click();
@@ -41,7 +41,11 @@ public class HomePage {
     }
 
     public void clickSocialButton(String linkSelector) {
-        $(linkSelector).scrollTo().click();
+        SelenideElement elementForScroll = $("[class='css-8h18ka']");
+        SelenideElement elementForClick = $(linkSelector);
+        executeJavaScript("arguments[0].scrollIntoView(true);", elementForScroll);
+        elementForClick.shouldBe(visible);
+        elementForClick.click();
     }
 
     public void enterSearchText(String textToSearch) {
@@ -60,22 +64,12 @@ public class HomePage {
         $(CLEAR_BUTTON).shouldBe(visible).click();
     }
 
-    public boolean isSearchClearButtonInvisible() {
-        try {
-            $(CLEAR_BUTTON).shouldNotBe(visible, Duration.ofSeconds(10));
-            return true;
-        } catch (TimeoutException e) {
-            return false;
-        }
+    public boolean isSearchClearButtonVisible() {
+        return ($(CLEAR_BUTTON).isDisplayed());
     }
 
-    public boolean isSearchClearButtonVisible() {
-        try {
-            $(CLEAR_BUTTON).shouldBe(visible, Duration.ofSeconds(10));
-            return true;
-        } catch (TimeoutException e) {
-            return false;
-        }
+    public void clickMessageLink() {
+        $(MESSAGE_LINK).shouldBe(visible).click();
     }
 }
 

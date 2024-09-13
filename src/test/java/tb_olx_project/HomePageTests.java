@@ -56,7 +56,7 @@ public class HomePageTests extends BaseTest {
 
         HomePage homePage = new HomePage();
 
-        Assert.assertTrue(homePage.isSearchClearButtonInvisible());
+        Assert.assertFalse(homePage.isSearchClearButtonVisible());
 
         homePage.typeSearchText(textForSearchType);
 

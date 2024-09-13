@@ -1,27 +1,37 @@
 package tb_olx_project;
 
 import com.codeborne.selenide.WebDriverRunner;
-
-import static com.codeborne.selenide.Selenide.*;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tb_olx_project.olx_data_provider.OLXDataProvider;
 
+import java.util.Set;
+
+import static com.codeborne.selenide.Selenide.switchTo;
+
 public class SocialMediaTests extends BaseTest {
 
     @Test(dataProvider = "getSocialMedia", dataProviderClass = OLXDataProvider.class)
-    public void testLinkOpensInNewTab(String expectedUrl, String linkSelector) {
+    public void testLinkOpensInNewTab(String expectedUrlPart, String linkSelector) {
+        String originalWindow = WebDriverRunner.getWebDriver().getWindowHandle();
 
         HomePage homePage = new HomePage();
         homePage.clickSocialButton(linkSelector);
 
-        String originalWindow = WebDriverRunner.getWebDriver().getWindowHandle();
+        Set<String> allWindows = WebDriverRunner.getWebDriver().getWindowHandles();
+        boolean siteFound = false;
 
-        switchTo().window(1);
+        for (String window : allWindows) {
+            if (!window.equals(originalWindow)) {
+                switchTo().window(window);
+                String newTabUrl = WebDriverRunner.url();
 
-        String newTabUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        boolean siteFound = newTabUrl.contains(expectedUrl);
+                if (newTabUrl.contains(expectedUrlPart)) {
+                    siteFound = true;
+                    break;
+                }
+            }
+        }
 
         switchTo().window(originalWindow);
 
