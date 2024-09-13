@@ -48,4 +48,18 @@ public class HomePageTests extends BaseTest {
 
         Assert.assertTrue(homePage.getSearchText().isEmpty());
     }
+
+    @Test(priority = 3)
+    public void verifySearchFilterCloseButtonAppear() {
+
+        String textForSearchType = "Test text";
+
+        HomePage homePage = new HomePage();
+
+        Assert.assertTrue(homePage.isSearchClearButtonInvisible());
+
+        homePage.typeSearchText(textForSearchType);
+
+        Assert.assertTrue(homePage.isSearchClearButtonVisible());
+    }
 }

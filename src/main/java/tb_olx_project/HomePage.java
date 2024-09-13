@@ -2,6 +2,8 @@ package tb_olx_project;
 
 import org.openqa.selenium.*;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
@@ -55,7 +57,25 @@ public class HomePage {
     }
 
     public void clickClearButton() {
-        $(CLEAR_BUTTON).click();
+        $(CLEAR_BUTTON).shouldBe(visible).click();
+    }
+
+    public boolean isSearchClearButtonInvisible() {
+        try {
+            $(CLEAR_BUTTON).shouldNotBe(visible, Duration.ofSeconds(10));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
+    }
+
+    public boolean isSearchClearButtonVisible() {
+        try {
+            $(CLEAR_BUTTON).shouldBe(visible, Duration.ofSeconds(10));
+            return true;
+        } catch (TimeoutException e) {
+            return false;
+        }
     }
 }
 
