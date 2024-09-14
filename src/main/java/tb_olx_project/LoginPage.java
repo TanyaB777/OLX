@@ -25,6 +25,11 @@ public class LoginPage {
         $(PASSWORD_INPUT).shouldBe(visible).setValue(passwordText);
     }
 
+    @Step("Set value from the password input")
+    public String getPasswordInput() {
+        return $(PASSWORD_INPUT).shouldBe(visible).getText();
+    }
+
     @Step("Get the invalid login message")
     public String getInvalidLoginMessage() {
         return $(INVALID_LOGIN_MESSAGE).shouldBe(visible).getText();
