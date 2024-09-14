@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 public class LoginTests extends BaseTest {
 
     final static String RED_COLOR = "rgba(255, 86, 54, 1)";
-    private static final Logger log = LoggerFactory.getLogger(LoginTests.class);
 
     @Test(priority = 1)
     @Description("Verify that an invalid login email displays the correct error message and message color.")
