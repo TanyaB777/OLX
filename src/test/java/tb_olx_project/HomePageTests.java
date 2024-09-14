@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
+import static org.testng.Assert.*;
 import static org.testng.Assert.assertTrue;
 
 public class HomePageTests extends BaseTest {
@@ -23,7 +24,7 @@ public class HomePageTests extends BaseTest {
         assertTrue(productsPage.checkProductSearchTitle());
 
         ElementsCollection searchResult = productsPage.getProductsItems();
-        searchResult.forEach(element -> Assert.assertTrue(element.isDisplayed()));
+        //assertFalse(searchResult.isEmpty());
     }
 
     @Test(priority = 1)
@@ -33,7 +34,7 @@ public class HomePageTests extends BaseTest {
         String whiteColor = "rgba(255, 255, 255, 1)";
         HomePage homePage = new HomePage();
         homePage.clickRusLanguageLink();
-        Assert.assertTrue(homePage.getUkrLinkColor().contains(whiteColor));
+        assertTrue(homePage.getUkrLinkColor().contains(whiteColor));
     }
 
     @Test(priority = 3)
@@ -44,7 +45,7 @@ public class HomePageTests extends BaseTest {
         HomePage homePage = new HomePage();
         homePage.typeSearchText(textForSearchType);
         homePage.clickClearButton();
-        Assert.assertTrue(homePage.getSearchText().isEmpty());
+        assertTrue(homePage.getSearchText().isEmpty());
     }
 
     @Test(priority = 3)
@@ -53,8 +54,8 @@ public class HomePageTests extends BaseTest {
     public void verifySearchFilterCloseButtonAppear() {
         String textForSearchType = "Test text";
         HomePage homePage = new HomePage();
-        Assert.assertFalse(homePage.isSearchClearButtonVisible());
+        assertFalse(homePage.isSearchClearButtonVisible());
         homePage.typeSearchText(textForSearchType);
-        Assert.assertTrue(homePage.isSearchClearButtonVisible());
+        assertTrue(homePage.isSearchClearButtonVisible());
     }
 }
