@@ -1,6 +1,7 @@
 package tb_olx_project;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -16,30 +17,37 @@ public class HomePage {
     private static final String CLEAR_BUTTON = "[data-testid = 'clear-btn']";
     private static final String MESSAGE_LINK = "[class='css-1o5oslh']";
 
+    @Step("Click on the Home category link")
     public void clickHomeCategoryLink() {
         $(HOME_CATEGORY_LINK).shouldBe(visible).click();
     }
 
+    @Step("Click on the Kitchen category link")
     public void clickKitchenCategoryLink() {
         $(KITCHEN_CATEGORY_LINK).shouldBe(visible).click();
     }
 
+    @Step("Click on the Russian language link")
     public void clickRusLanguageLink() {
         $(RUS_LANGUAGE_LINK).shouldBe(visible).click();
     }
 
+    @Step("Click on the Ukrainian language link")
     public void clickUkrLanguageLink() {
         $(UKR_LANGUAGE_LINK).shouldBe(visible).click();
     }
 
+    @Step("Get the color of the Russian language link")
     public String getRusLinkColor() {
         return $(RUS_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
     }
 
+    @Step("Get the color of the Ukrainian language link")
     public String getUkrLinkColor() {
         return $(UKR_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
     }
 
+    @Step("Click on social button with selector: {linkSelector}")
     public void clickSocialButton(String linkSelector) {
         SelenideElement elementForScroll = $("[class='css-8h18ka']");
         SelenideElement elementForClick = $(linkSelector);
@@ -48,26 +56,32 @@ public class HomePage {
         elementForClick.click();
     }
 
+    @Step("Enter text '{textToSearch}' into the search input and press Enter")
     public void enterSearchText(String textToSearch) {
         $(SEARCH_INPUT).shouldBe(visible).setValue(textToSearch).pressEnter();
     }
 
+    @Step("Type text '{textToSearch}' into the search input")
     public void typeSearchText(String textToSearch) {
         $(SEARCH_INPUT).shouldBe(visible).setValue(textToSearch);
     }
 
+    @Step("Get text from the search input")
     public String getSearchText() {
         return $(SEARCH_INPUT).shouldBe(visible).getText();
     }
 
+    @Step("Click on the clear button")
     public void clickClearButton() {
         $(CLEAR_BUTTON).shouldBe(visible).click();
     }
 
+    @Step("Check if the search clear button is visible")
     public boolean isSearchClearButtonVisible() {
         return ($(CLEAR_BUTTON).isDisplayed());
     }
 
+    @Step("Click on the message link")
     public void clickMessageLink() {
         $(MESSAGE_LINK).shouldBe(visible).click();
     }
