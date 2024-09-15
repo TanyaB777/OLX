@@ -34,16 +34,6 @@ public class HomePage {
         $(RUS_LANGUAGE_LINK).shouldBe(visible).click();
     }
 
-    @Step("Click on the Ukrainian language link")
-    public void clickUkrLanguageLink() {
-        $(UKR_LANGUAGE_LINK).shouldBe(visible).click();
-    }
-
-    @Step("Get the color of the Russian language link")
-    public String getRusLinkColor() {
-        return $(RUS_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
-    }
-
     @Step("Get the color of the Ukrainian language link")
     public String getUkrLinkColor() {
         return $(UKR_LANGUAGE_LINK).shouldBe(visible).getCssValue("color");
