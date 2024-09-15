@@ -3,9 +3,7 @@ package tb_olx_project;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 
 import static org.testng.Assert.*;
 import static org.testng.Assert.assertTrue;
@@ -24,7 +22,7 @@ public class HomePageTests extends BaseTest {
         assertTrue(productsPage.checkProductSearchTitle());
 
         ElementsCollection searchResult = productsPage.getProductsItems();
-        //assertFalse(searchResult.isEmpty());
+        assertFalse(searchResult.isEmpty());
     }
 
     @Test(priority = 1)

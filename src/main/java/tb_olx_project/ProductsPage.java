@@ -3,6 +3,7 @@ package tb_olx_project;
 import com.codeborne.selenide.ElementsCollection;
 import io.qameta.allure.Step;
 
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -24,6 +25,6 @@ public class ProductsPage {
 
     @Step("Get the list of product items")
     public ElementsCollection getProductsItems() {
-        return $$(PRODUCT_ITEMS);
+        return $$(PRODUCT_ITEMS).shouldHave(sizeGreaterThan(0));
     }
 }
