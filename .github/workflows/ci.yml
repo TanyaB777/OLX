@@ -1,8 +1,8 @@
-name: Scheduled and Push Tests
+name: Run Selenide Tests
 
 on:
   schedule:
-    - cron: '10 13 * * *'  # Запуск в 13:10 UTC каждый день
+    - cron: '10 03 * * *'  # Запуск в 03:10 UTC каждый день
   push:
     branches:
       - main  # Запуск при push в ветку main
@@ -13,19 +13,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4  # Обновленная версия
+        uses: actions/checkout@v4
 
       - name: Set up Java
-        uses: actions/setup-java@v4  # Обновленная версия
+        uses: actions/setup-java@v4
         with:
-          java-version: '11'  # Задайте версию Java
-          distribution: 'temurin'  # Укажите дистрибуцию Java
+          java-version: '17'
+          distribution: 'temurin'
 
       - name: Install dependencies
-        run: |
-          mvn install  # Установить зависимости
+        run: mvn install
 
-      - name: Run tests
-        run: |
-          mvn test -DsuiteXmlFiles=runner.xml  # Запустить тесты с использованием runner.xml
-
+      - name: Run Selenide tests
+        run: mvn test
