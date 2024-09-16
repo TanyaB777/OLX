@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
 
-    //Test
+    //Test tb
 
     private static final String HOME_CATEGORY_LINK = "[class='css-cbwxzx']";
     private static final String KITCHEN_CATEGORY_LINK = "[href*='posuda-kuhonnaya-utvar']";
