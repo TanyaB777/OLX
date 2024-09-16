@@ -18,7 +18,7 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4  # Обновленная версия
         with:
-          java-version: '11'  # Задайте версию Java, если ваши тесты используют Java
+          java-version: '17'  # Задайте версию Java, если ваши тесты используют Java
 
       - name: Install dependencies
         run: |
