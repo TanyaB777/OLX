@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v4  # Обновленная версия
         with:
           java-version: '11'  # Задайте версию Java
-          distribution: 'adoptopenjdk'  # Укажите дистрибуцию Java
+          distribution: 'temurin'  # Укажите дистрибуцию Java
 
       - name: Install dependencies
         run: |
@@ -32,3 +32,4 @@ jobs:
           # Команда для запуска тестов
           # Например, для Maven:
           mvn test
+
