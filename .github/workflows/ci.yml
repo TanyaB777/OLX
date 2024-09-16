@@ -25,4 +25,4 @@ jobs:
         run: mvn install
 
       - name: Run Selenide tests
-        run: mvn test
+        run: mvn test -DsuiteXmlFiles=runner.xml
