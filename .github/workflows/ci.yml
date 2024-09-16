@@ -18,7 +18,8 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4  # Обновленная версия
         with:
-          java-version: '17'  # Задайте версию Java, если ваши тесты используют Java
+          java-version: '11'  # Задайте версию Java
+          distribution: 'adoptopenjdk'  # Укажите дистрибуцию Java
 
       - name: Install dependencies
         run: |
@@ -31,4 +32,3 @@ jobs:
           # Команда для запуска тестов
           # Например, для Maven:
           mvn test
-
