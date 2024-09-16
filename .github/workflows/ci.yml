@@ -18,18 +18,14 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v4  # Обновленная версия
         with:
-          java-version: '17'  # Задайте версию Java
+          java-version: '11'  # Задайте версию Java
           distribution: 'temurin'  # Укажите дистрибуцию Java
 
       - name: Install dependencies
         run: |
-          # Команда для установки зависимостей
-          # Например, для Maven:
-          mvn install
+          mvn install  # Установить зависимости
 
       - name: Run tests
         run: |
-          # Команда для запуска тестов
-          # Например, для Maven:
-          mvn test
+          mvn test -DsuiteXmlFiles=runner.xml  # Запустить тесты с использованием runner.xml
 
