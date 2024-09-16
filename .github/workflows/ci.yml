@@ -31,3 +31,9 @@ jobs:
           # Команда для запуска тестов
           # Например, для Maven:
           mvn test
+
+          - name: Checkout code
+              uses: actions/checkout@v4  # Или последняя доступная версия
+
+          - name: Set up Java
+            uses: actions/setup-java@v4  # Или последняя доступная версия
