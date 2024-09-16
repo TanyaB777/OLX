@@ -2,11 +2,10 @@ name: Scheduled Tests
 
 on:
   schedule:
-   - cron: '10 13 * * *'  # Запуск в 13:10 UTC каждый день
-  # Опционально: можно добавить событие push или другие триггеры
-  # push:
-  #   branches:
-  #     - main
+    - cron: '10 13 * * *'  # Запуск в 13:10 UTC каждый день
+  push:
+    branches:
+      - main  # Запуск при push в ветку main
 
 jobs:
   test:
