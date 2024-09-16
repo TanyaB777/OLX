@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
 
+    //777
     private static final String HOME_CATEGORY_LINK = "[class='css-cbwxzx']";
     private static final String KITCHEN_CATEGORY_LINK = "[href*='posuda-kuhonnaya-utvar']";
     private static final By RUS_LANGUAGE_LINK = By.linkText("Рус");
