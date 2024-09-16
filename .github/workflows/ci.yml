@@ -1,4 +1,4 @@
-name: Scheduled Tests
+name: Scheduled and Push Tests
 
 on:
   schedule:
@@ -13,16 +13,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Обновленная версия
 
       - name: Set up Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4  # Обновленная версия
         with:
-          java-version: '17'  # Задайте версию Java, если ваши тесты используют Java
+          java-version: '11'  # Задайте версию Java, если ваши тесты используют Java
 
       - name: Install dependencies
         run: |
-          # Здесь команды для установки зависимостей
+          # Команда для установки зависимостей
           # Например, для Maven:
           mvn install
 
@@ -32,8 +32,3 @@ jobs:
           # Например, для Maven:
           mvn test
 
-          - name: Checkout code
-              uses: actions/checkout@v4  # Или последняя доступная версия
-
-          - name: Set up Java
-            uses: actions/setup-java@v4  # Или последняя доступная версия
